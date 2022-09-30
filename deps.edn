@@ -1,0 +1,3 @@
+{:path ["src"]
+ :deps {}
+ :aliases {:run {:main-opts ["-m" "playground.main"]}}}

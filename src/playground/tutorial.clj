@@ -74,13 +74,13 @@
 ;; [1 2 3 4] -> {:total 10}
 (reduce
  (fn [acc curr] 
-   (assoc acc :total (curr)))
- {}
+   (+ acc curr))
+ 4
  [1 2 3 4])
 
-(type reduce)
+(some even? [1289 20 54])
 
-(defn -main
-  []
-  (println "Hello World")
-  (add-2 3))
+(defn multiply-by-2 [x]
+   (* x 2))
+
+(multiply-by-2 4)
