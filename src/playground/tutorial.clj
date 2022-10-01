@@ -1,13 +1,31 @@
-;; Primitive Data Type
+;; This tutorial assumed that you have installed Calva
+;; alt+enter -> evaluate from within a form
+;; ctrl+enter -> evaluate the previous form, left side of the cursor
+;;               you can also highlight and execute with ctrl+enter
 
+;; -------------------------
+;; Primitive Data Type
 2
 "hello"
-'(1 2 3) ;; list
+'(1 2 3) ;; list, '(single quote) is also used to delay the evaluation
 [1 2 3] ;; vector
 #{1 2 3} ;; set
 {"name" "John" :age 12} ;; hash map
 
+
+;; -------------------------
+;; Loading description into REPL
+(require '[clojure.repl :refer :all])
+(doc first) ;; read the function document
+(find-doc "first") ;; read further more
+(apropos "fir") ;; search that function
+
+
+;; -------------------------
 ;; Variable assignment
+(def x 1)
+x
+
 (def myVector 
   (vector 1 2 3))
 (first myVector)
