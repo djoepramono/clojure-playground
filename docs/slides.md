@@ -6,7 +6,7 @@ by Djoe Pramono
 
 # The setup
 
-Clojure + Calva (VS Code Extension)
+Java + Clojure + Calva (VS Code Extension)
 
 ---
 

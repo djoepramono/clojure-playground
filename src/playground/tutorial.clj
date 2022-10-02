@@ -12,7 +12,6 @@
 #{1 2 3} ;; set
 {"name" "John" :age 12} ;; hash map
 
-
 ;; -------------------------
 ;; Loading description into REPL
 (require '[clojure.repl :refer :all])
@@ -99,13 +98,9 @@ x
 ;; [1 2 3 4] -> {:total 10}
 (reduce
  (fn [acc curr] 
-   (+ acc curr))
- 4
+   (+ acc curr)) 
+ 2
  [1 2 3 4])
 
 (some even? [1289 20 54])
 
-(defn multiply-by-2 [x]
-   (* x 2))
-
-(multiply-by-2 4)
