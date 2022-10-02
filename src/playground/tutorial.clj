@@ -30,22 +30,24 @@ x
   (vector 1 2 3))
 (first myVector)
 
-(def mySet
-  (set [ 1 2 3 3]))
-(first mySet)
+;; Referential Transparency
+(= myVector (vector 1 2 3))
 
-;; Immutable
+
+;; -------------------------
+;; Immutable data
 (def myHashMap
   (hash-map "name" "John" 
             :age 24))
-(get :age myHashMap)
+(eval myHashMap)
+(get myHashMap :age)
+
+;; adding additional key value pair is actually creating another copy of the data
 (def myNewHashMap (
-                   assoc myHashMap :team {:name "Roaring Tiger" :motto "rawrrr"}))                  
+                   assoc myHashMap :team {:name "Roaring Tiger" :motto "rawrrr"}))
 
 (get-in myNewHashMap [:team :motto])
 
-;; Referential Transparency
-(= myVector (vector 1 2 3))
 
 ;; -------------------------
 ;; Function
@@ -55,6 +57,7 @@ x
     (+ x 2)))
 
 (add-2 3)
+(apply add-2 [3])
 
 ;; Same function different signature
 (defn add-all
@@ -63,7 +66,11 @@ x
   ([a b c]
    (+ a b c)))
 
+
+;; You can create different arity function
+(add-all 2 3)
 (add-all 4 8 12)
+
 
 ;; -----------------------
 ;; Recursion
@@ -74,6 +81,7 @@ x
     1))
 
 (factorial 4)
+(= (factorial 4) (* 4 3 2 1))
 
 
 ;; -----------------------
@@ -87,7 +95,6 @@ x
 
 ;; #() denotes a lambda where % is the argument passed in
 (map #(* % 2) [1 2 3 4])
-
 
 ;; [1 2 3 4] -> {:total 10}
 (reduce
