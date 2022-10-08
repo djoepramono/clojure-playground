@@ -11,7 +11,8 @@
      [_ 0] "Buzz"
      :else n)))
 
-;;---
+;; -----------------------
+;; Sum type pattern matching e.g. traffic light
 
 (derive ::red ::traffic-lights)
 (derive ::yellow ::traffic-lights)
@@ -30,3 +31,34 @@
   [::yellow] "it is yellow"
   [::green] "it is green"
   :else "whoops")
+
+;; -----------------------
+;; Product type pattern matching
+
+(defrecord Student [name grade])
+(def jack (Student. "Jack" "A"))
+(:name jack)
+(type jack)
+
+(defrecord Teacher [name subject])
+(def jill (Teacher. "Jill" "Math"))
+(:name jill)
+(class jill)
+
+;; It's based on the structure
+(match [jill]
+  [{:name %}] (str "the name is " %)
+  [{:grade %}] (str "the grade is " %)
+  :else "no name")
+
+;; For some reason this doesn't work
+;; (match [(type jack)]
+;;   [Teacher] "teacher"
+;;   :else "no match")
+
+;; Or you can try to match the type
+(let [teacher Teacher]
+  (match [(type jack)]
+    [teacher] "teacher"
+    :else "not teacher"))
+
