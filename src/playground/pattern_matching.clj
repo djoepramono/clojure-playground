@@ -10,3 +10,23 @@
      [0 _] "Fizz"
      [_ 0] "Buzz"
      :else n)))
+
+;;---
+
+(derive ::red ::traffic-lights)
+(derive ::yellow ::traffic-lights)
+(derive ::green ::traffic-lights)
+
+;; Check parents
+(parents ::red)
+(descendants ::traffic-lights)
+
+;; Variable assignment
+(def currentlyOn ::green)
+
+
+(match [currentlyOn]
+  [::red] "it is red"
+  [::yellow] "it is yellow"
+  [::green] "it is green"
+  :else "whoops")
