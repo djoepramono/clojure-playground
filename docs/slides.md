@@ -40,9 +40,9 @@ Clojure has an amazing REPL, and Calva integrates with it well
 
 ---
 
-# Immutable once assigned
+# Immutability in Clojure
 
-Once assigned data is immutable. 
+The data value is immutable. 
 
 However we can create a copy of the original data and modify it
 

@@ -12,6 +12,7 @@
 #{1 2 3} ;; set
 {"name" "John" :age 12} ;; hash map
 
+
 ;; -------------------------
 ;; Loading description into REPL
 (require '[clojure.repl :refer :all])
@@ -25,12 +26,31 @@
 (def x 1)
 x
 
-(def myVector 
-  (vector 1 2 3))
-(first myVector)
+;; Note that you can redefine once assigned x so yes Clojure allows mutability
+;; Redefining unbound variable would yield in a different memory address however
 
+;; Let, would allow you to scope the variable assignment
+;; and it prevents mutability*
+;; * redefining x actually doesn't do anything inside the form, 
+;;   but it will mutates x outside the form
+(let [x 4]
+  (println (+ x 3))
+  (println (+ x 4))
+  (def x 7) 
+  x)
+x
+
+;; Take this with a grain of salt, because some would argue that the data itself is immutable
+;; Calling def x twice only mutates the binding
+
+
+;; -------------------------
 ;; Referential Transparency
+(def myVector
+  (vector 1 2 3))
 (= myVector (vector 1 2 3))
+
+;; You can do point free programming here
 
 
 ;; -------------------------
@@ -40,6 +60,7 @@ x
             :age 24))
 (eval myHashMap)
 (get myHashMap :age)
+(:age myHashMap)
 
 ;; adding additional key value pair is actually creating another copy of the data
 (def myNewHashMap (
