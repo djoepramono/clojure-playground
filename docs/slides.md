@@ -4,6 +4,30 @@ by Djoe Pramono
 
 ---
 
+# Clojure
+
+A dynamic and functional LISP dialect. 
+
+Its core is small based on lambda calculus principle
+
+Separate language from a platform, i.e. needs a run time like JVM
+
+---
+
+# A LISP dialect
+
+Stands for List Processor.
+
+Code as Data
+
+```
+(+ 2 3)
+```
+
+that line of code above is actually a list
+
+---
+
 # The setup
 
 Java + Clojure + Calva (VS Code Extension)
@@ -13,22 +37,6 @@ Java + Clojure + Calva (VS Code Extension)
 # An amazing REPL
 
 Clojure has an amazing REPL, and Calva integrates with it well
-
----
-
-# LISP
-
-Stands for List Programming.
-
-Everything in Clojure is Data
-
-```
-(+ 2 3)
-```
-
-that line of code above is actually a list
-
-function is put before the argument
 
 ---
 
