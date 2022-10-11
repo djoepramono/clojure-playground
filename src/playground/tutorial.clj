@@ -4,7 +4,7 @@
 ;;               you can also highlight and execute with ctrl+enter
 
 ;; -------------------------
-;; Primitive Data Type
+;; 1. Primitive Data Type
 
 ;; number
 2
@@ -87,6 +87,7 @@ x
 ;; Function
 
 ;; create using def
+;; can also call a function using apply
 (def add-2
   (fn [x]
     (print x)
@@ -135,20 +136,7 @@ x
 (times-eight-then-plus-one-v2 2)
 
 (= (times-eight-then-plus-one-v2 2) (+ 1(* 8 2)))
-
 (= (times-eight-then-plus-one 2) (times-eight-then-plus-one-v2 2))
-
-;; -----------------------
-;; Recursion
-
-(defn factorial [x]
-  (if (> x 1)
-    (* x (factorial (dec x)))
-    1))
-
-(factorial 4)
-(= (factorial 4) (* 4 3 2 1))
-
 
 ;; -----------------------
 ;; Higher order function
@@ -177,3 +165,13 @@ x
 ;; some, who will check if some of the vector meets a criteria
 (some even? [1289 20 54])
 
+;; -----------------------
+;; Recursion
+
+(defn factorial [x]
+  (if (> x 1)
+    (* x (factorial (dec x)))
+    1))
+
+(factorial 4)
+(= (factorial 4) (* 4 3 2 1))

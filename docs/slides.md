@@ -6,7 +6,7 @@ by Djoe Pramono
 
 # Clojure
 
-A dynamic and functional LISP dialect. 
+A dynamic and functional LISP dialect.
 
 Its core is small based on lambda calculus principle
 
@@ -32,6 +32,8 @@ that line of code above is actually a list
 
 Java + Clojure + Calva (VS Code Extension)
 
+oh and `rlwrap` is awesome optional
+
 ---
 
 # An amazing REPL
@@ -40,9 +42,13 @@ Clojure has an amazing REPL, and Calva integrates with it well
 
 ---
 
-# Immutability in Clojure
+# Variables and immutability
 
-The data value is immutable. 
+There are `def` and `let`
+
+We can redefine the binding multiple times
+
+The data value once set is immutable
 
 However we can create a copy of the original data and modify it
 
@@ -50,10 +56,29 @@ However we can create a copy of the original data and modify it
 
 # Functions
 
+There are a few ways to create a function `def` and `defn`
+
 Functions in clojure can have different arity
+
+We can chain a value with functions with `->` and `-->`
+
+---
+
+# Higher order functions
+
+A function that return another function
 
 ---
 
 # Recursion
 
 Instead of loop, it uses recursion
+
+---
+# Back to the boring but essential bits
+
+`edn` file
+
+How to execute from a command line
+
+How to import JAVA library / Clojure function in another file
