@@ -82,3 +82,9 @@ Instead of loop, it uses recursion
 How to execute from a command line
 
 How to import JAVA library / Clojure function in another file
+
+---
+
+# Coming up
+
+Sum Type, Product Type, and Pattern Matching
