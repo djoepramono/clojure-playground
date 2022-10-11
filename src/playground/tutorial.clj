@@ -5,12 +5,21 @@
 
 ;; -------------------------
 ;; Primitive Data Type
+
+;; number
 2
+
+;; string
 "hello"
-'(1 2 3) ;; list, '(single quote) is also used to delay the evaluation
-[1 2 3] ;; vector
-#{1 2 3} ;; set
-{"name" "John" :age 12} ;; hash map
+
+;; vector
+[1 2 3]
+
+;; set, contains unique member
+#{1 2 3} 
+
+;; hash map
+{"name" "John" :age 12} ;; 
 
 
 ;; -------------------------
@@ -46,6 +55,7 @@ x
 
 ;; -------------------------
 ;; Referential Transparency
+;; A piece of code can be replaced with the output
 (def myVector
   (vector 1 2 3))
 (= myVector (vector 1 2 3))
@@ -54,23 +64,29 @@ x
 
 
 ;; -------------------------
-;; Immutable data
+;; Immutable hash map
+;; declare a hash map
 (def myHashMap
   (hash-map "name" "John" 
             :age 24))
+
+;; evaluate or get its properties
 (eval myHashMap)
 (get myHashMap :age)
 (:age myHashMap)
 
-;; adding additional key value pair is actually creating another copy of the data
+;; add additional key value pair by creating another copy of the data
 (def myNewHashMap (
                    assoc myHashMap :team {:name "Roaring Tiger" :motto "rawrrr"}))
 
+;; try use get-in to get deeper properties of an object
 (get-in myNewHashMap [:team :motto])
 
 
 ;; -------------------------
 ;; Function
+
+;; create using def
 (def add-2
   (fn [x]
     (print x)
@@ -79,15 +95,14 @@ x
 (add-2 3)
 (apply add-2 [3])
 
-;; Same function different signature
+;; create using defn
+;; but this time use different arity
 (defn add-all
   ([a b]
    (+ a b))
   ([a b c]
    (+ a b c)))
 
-
-;; You can create different arity function
 (add-all 2 3)
 (add-all 4 8 12)
 
@@ -107,11 +122,15 @@ x
 ;; -----------------------
 ;; Higher order function
 
+;; map
 (map inc [1 2 3 4])
-(filter even? [1 2 3 4])
-(reduce add-all [1 2 3 4])
+(map (fn [x] (* x 2)) [1 2 3 4])
 
-(map (fn [x] (* x 2))[1 2 3 4])
+;; filter
+(filter even? [1 2 3 4])
+
+;; reduce
+(reduce add-all [1 2 3 4])
 
 ;; #() denotes a lambda where % is the argument passed in
 (map #(* % 2) [1 2 3 4])
@@ -120,8 +139,10 @@ x
 (reduce
  (fn [acc curr] 
    (+ acc curr)) 
- 2
+ 0
  [1 2 3 4])
 
+;; there are other higher order function as well
+;; some, who will check if some of the vector meets a criteria
 (some even? [1289 20 54])
 
