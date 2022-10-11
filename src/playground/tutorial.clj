@@ -106,6 +106,37 @@ x
 (add-all 2 3)
 (add-all 4 8 12)
 
+;; function that accepts any number of arguments
+(defn smooch-all-strings
+  ([& args]
+   (reduce str args)))
+(smooch-all-strings "jack" "jill" "bob")
+
+;; -> compose x with functions where x comes as the first args
+;; also called as thread first
+;; function can take any arguments
+(defn times-eight-then-plus-one
+  ([number] 
+   (-> number
+       (* 8)
+       (+ 1))))
+(times-eight-then-plus-one 2)
+
+(= (times-eight-then-plus-one 2) (+ (* 2 8) 1))
+
+;; ->> another compose x with functions but x comes as the last args
+;; called as thread last
+;; that means the functions need to take at least 2 arguments
+(defn times-eight-then-plus-one-v2
+  ([number]
+   (->> number
+        (* 8)
+        (+ 1))))
+(times-eight-then-plus-one-v2 2)
+
+(= (times-eight-then-plus-one-v2 2) (+ 1(* 8 2)))
+
+(= (times-eight-then-plus-one 2) (times-eight-then-plus-one-v2 2))
 
 ;; -----------------------
 ;; Recursion
