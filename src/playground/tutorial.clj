@@ -164,14 +164,3 @@ x
 ;; there are other higher order function as well
 ;; some, who will check if some of the vector meets a criteria
 (some even? [1289 20 54])
-
-;; -----------------------
-;; Recursion
-
-(defn factorial [x]
-  (if (> x 1)
-    (* x (factorial (dec x)))
-    1))
-
-(factorial 4)
-(= (factorial 4) (* 4 3 2 1))

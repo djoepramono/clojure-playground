@@ -74,6 +74,8 @@ A function that return another function
 
 Instead of loop, it uses recursion
 
+But we have to be careful of stack overflow
+
 ---
 # Back to the boring but essential bits
 
