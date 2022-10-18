@@ -1,8 +1,9 @@
 (ns playground.pattern-matching)
 
 (require '[clojure.core.match :refer [match]])
-(+ 3 4)
 
+;; doseq executes a side effecting expression against a vector
+;; it's similar to doall however you can bind variables with doseq
 (doseq [n (range 1 101)]
   (println
    (match [(mod n 3) (mod n 5)]
