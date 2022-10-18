@@ -70,20 +70,25 @@ A function that return another function
 
 ---
 
+# How to run Clojure file command line
+
+There are a few ways 
+
+But today we are going to cover `clj -M -m` and `clj -X`
+
+---
+
+# deps.edn
+
+How to import JAVA library / Clojure function in another file
+
+---
+
 # Recursion
 
 Instead of loop, it uses recursion
 
 But we have to be careful of stack overflow
-
----
-# Back to the boring but essential bits
-
-`edn` file
-
-How to execute from a command line
-
-How to import JAVA library / Clojure function in another file
 
 ---
 
