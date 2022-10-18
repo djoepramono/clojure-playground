@@ -22,16 +22,17 @@
 ;; recur needs to happen at tail position i.e. last expression. Note that in Clojure everything is an expression
 ;; arithmetic functions with ' will convert results to BigInt to avoid overflow
 
-(defn another-factorial [x] ()
-  (defn inner-factorial [y acc] 
+(defn another-factorial [x]
+  (defn inner-factorial [y acc]
     (if (<= y 1)
       acc
-      (recur (dec y)(*' acc y))))
+      (recur (dec y) (*' acc y))))
   (inner-factorial x 1))
 
 (another-factorial 999)
 
 ;; now let's do another factor and turn the original function to use multi arity
+;; basically turn the inner function is the same function with different arity
 (defn tail-rec-factorial
   ([x] (tail-rec-factorial x 1))
   ([x acc] (
